@@ -112,13 +112,16 @@ class MainActivityMCLB : AppCompatActivity() {
                Toast.makeText(this, "El formulario no es Valido", Toast.LENGTH_SHORT).show()
            }
        }else{
-           Toast.makeText(this, "Ingrese una contraseña entre 6 - 10 caracteres ", Toast.LENGTH_SHORT).show()
+           Toast.makeText(this,
+               "Ingrese una contraseña entre 6 - 10 caracteres " +
+                   "Debe contener minimo una letra mayuscula, una letra minuscula" +
+                   "un caracter especial y un numero" , Toast.LENGTH_SHORT).show()
        }
     }
 
 
     //funcion para la validacion de la contraseña
-    open fun validarPassword(password: String): Boolean {
+    fun validarPassword(password: String): Boolean {
         var validar = true
         var seguidos = 0
         var ultimo = 0xFF.toChar()
@@ -126,7 +129,6 @@ class MainActivityMCLB : AppCompatActivity() {
         var mayuscula = 0
         var numero = 0
         var especial = 0
-        val espacio = false
         if (password.length < 6 || password.length > 10) return false // tamaño
         for (i in 0 until password.length) {
             val c = password[i]
