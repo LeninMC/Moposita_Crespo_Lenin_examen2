@@ -26,7 +26,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
     var editTextEmail             : EditText? = null
     var editTextName              : EditText? = null
     var editTextLastName          : EditText? = null
-   // var editTextCedula          : EditText? = null
+    var editTextCedula          : EditText? = null
     var editTextDireccion          : EditText? = null
     var editTextPhone             : EditText? = null
     var editTextPassword          : EditText? = null
@@ -45,7 +45,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
         editTextEmail           = findViewById(R.id.edittext_email)
         editTextName            = findViewById(R.id.edittext_name)
         editTextLastName        = findViewById(R.id.edittext_lastname)
-        //editTextCedula          = findViewById(R.id.edittext_cedula)
+        editTextCedula          = findViewById(R.id.edittext_cedula)
         editTextDireccion       = findViewById(R.id.edittext_direccion)
         editTextPhone           = findViewById(R.id.edittext_phone)
         editTextPassword        = findViewById(R.id.edittext_password)
@@ -69,7 +69,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
      */
     private fun registerMCLB(){
         val name            = editTextName?.text.toString()
-        //val dni             = editTextCedula?.text.toString()
+        val dni             = editTextCedula?.text.toString()
         val adress          = editTextDireccion?.text.toString()
         val lastname        = editTextLastName?.text.toString()
         val email           = editTextEmail?.text.toString()
