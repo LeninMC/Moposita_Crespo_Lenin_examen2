@@ -56,6 +56,21 @@
 
             android:padding="15dp"
             android:textSize="15sp" />
+        <EditText
+            android:id="@+id/edittext_Mostrardatos"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_custom_mclb"
+            android:text="bryan123@gmail.com,  aa11AA@"
+
+            android:inputType="text"
+
+
+            android:padding="15dp"
+            android:textSize="15sp" />
     </LinearLayout>
     <!--CONTENEDOR-->
     <LinearLayout
