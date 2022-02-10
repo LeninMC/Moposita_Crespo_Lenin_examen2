@@ -65,51 +65,55 @@ class MainActivityMCLB : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-        if (isValidarFormMCLB(email, password)) {
-            usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
-                override fun onResponse(
-                    call: Call<ResponseHttpMCLB>,
-                    responseMCLB: Response<ResponseHttpMCLB>
-                ) {
-                    Log.d("MainActivity", "Response : ${responseMCLB.body()}")
-                    if (responseMCLB.body()?.isSuccess == true) {
-                        Toast.makeText(
-                            this@MainActivityMCLB,
-                            "El Formulario es Valido",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        //Amacena el Usuario
-                        saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
-                        Log.d(
-                            "MainActivity",
-                            "Response SessionSave : ${responseMCLB.body()?.data.toString()}"
-                        )
-                        //Navega a la Activity de Home
-                        goToClientHomeMCLB()
-                    } else {
-                        Toast.makeText(
-                            this@MainActivityMCLB,
-                            "Los Datos no son Correctos ",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
+       if(password.length > 5){
+           if (isValidarFormMCLB(email, password)) {
+               usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
+                   override fun onResponse(
+                       call: Call<ResponseHttpMCLB>,
+                       responseMCLB: Response<ResponseHttpMCLB>
+                   ) {
+                       Log.d("MainActivity", "Response : ${responseMCLB.body()}")
+                       if (responseMCLB.body()?.isSuccess == true) {
+                           Toast.makeText(
+                               this@MainActivityMCLB,
+                               "El Formulario es Valido",
+                               Toast.LENGTH_SHORT
+                           ).show()
+                           //Amacena el Usuario
+                           saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
+                           Log.d(
+                               "MainActivity",
+                               "Response SessionSave : ${responseMCLB.body()?.data.toString()}"
+                           )
+                           //Navega a la Activity de Home
+                           goToClientHomeMCLB()
+                       } else {
+                           Toast.makeText(
+                               this@MainActivityMCLB,
+                               "Los Datos no son Correctos ",
+                               Toast.LENGTH_SHORT
+                           ).show()
+                       }
+                   }
 
-                override fun onFailure(call: Call<ResponseHttpMCLB>, t: Throwable) {
-                    Toast.makeText(
-                        this@MainActivityMCLB,
-                        "Ocurrio un Error ${t.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.d("MainActivity", "Ocurrio un Error ${t.message}")
-                }
+                   override fun onFailure(call: Call<ResponseHttpMCLB>, t: Throwable) {
+                       Toast.makeText(
+                           this@MainActivityMCLB,
+                           "Ocurrio un Error ${t.message}",
+                           Toast.LENGTH_SHORT
+                       ).show()
+                       Log.d("MainActivity", "Ocurrio un Error ${t.message}")
+                   }
 
-            })
+               })
 
 
-        } else {
-            Toast.makeText(this, "El formulario no es Valido", Toast.LENGTH_SHORT).show()
-        }
+           } else {
+               Toast.makeText(this, "El formulario no es Valido", Toast.LENGTH_SHORT).show()
+           }
+       }else{
+           Toast.makeText(this, "Ingrese una contraseña entre 6 - 10 caracteres ", Toast.LENGTH_SHORT).show()
+       }
     }
 
 
