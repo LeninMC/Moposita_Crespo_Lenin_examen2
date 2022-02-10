@@ -57,6 +57,7 @@
             android:padding="15dp"
             android:textSize="15sp" />
         <EditText
+
             android:id="@+id/edittext_Mostrardatos"
             android:layout_width="match_parent"
             android:layout_height="50dp"
