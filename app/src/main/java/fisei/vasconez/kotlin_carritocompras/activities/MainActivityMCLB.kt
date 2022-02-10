@@ -65,7 +65,7 @@ class MainActivityMCLB : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-      // if(validarPassword(password)){
+       if(validarPassword(password)){
            if (isValidarFormMCLB(email, password)) {
                usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
                    override fun onResponse(
@@ -111,12 +111,12 @@ class MainActivityMCLB : AppCompatActivity() {
            } else {
                Toast.makeText(this, "El formulario no es Valido", Toast.LENGTH_SHORT).show()
            }
-     //  }else{
-       //    Toast.makeText(this,
-       //        "Ingrese una contraseña entre 6 - 10 caracteres " +
-        //           "Debe contener minimo una letra mayuscula, una letra minuscula" +
-       //            "un caracter especial y un numero" , Toast.LENGTH_LONG).show()
-      // }
+       }else{
+          Toast.makeText(this,
+              "Ingrese una contraseña entre 6 - 10 caracteres " +
+                  "Debe contener minimo una letra mayuscula, una letra minuscula" +
+                   "un caracter especial y un numero" , Toast.LENGTH_LONG).show()
+      }
     }
 
 

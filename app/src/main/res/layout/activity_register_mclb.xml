@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/indigo_daisy"
             android:text="Registro"
             android:textSize="50dp" />
@@ -31,98 +31,107 @@
         <EditText
             android:id="@+id/edittext_name"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Nombre"
             android:inputType="text"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_lastname"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Apellido"
             android:inputType="text"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <EditText
             android:id="@+id/edittext_cedula"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Cedula"
+            android:inputType="text"
             android:maxLength="10"
-            android:inputType="number"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_direccion"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Direccion"
             android:inputType="text"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_email"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_phone"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Telefono"
             android:inputType="phone"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_password"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edittext_confirm_password"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittext_custom_mclb"
             android:hint="Confimar Password"
             android:inputType="textPassword"
-            android:padding="15dp" />
+            android:padding="15dp"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout

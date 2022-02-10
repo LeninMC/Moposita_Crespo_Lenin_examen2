@@ -194,13 +194,43 @@ class RegisterActivityMCLB : AppCompatActivity() {
             }
 
 
-            //TODO
-
         } else {
             Toast.makeText(this, "La cedula debe tener 10 digitos", Toast.LENGTH_SHORT)
                 .show()
             return false
         }
+    }
+    //funcion para la validacion de la contraseña
+    fun validarPassword(password: String): Boolean {
+        var validar = true
+        var seguidos = 0
+        var ultimo = 0xFF.toChar()
+        var minuscula = 0
+        var mayuscula = 0
+        var numero = 0
+        var especial = 0
+        if (password.length < 6 || password.length > 10) return false // tamaño
+        for (i in 0 until password.length) {
+            val c = password[i]
+            if (c <= ' ' || c > '~') {
+                validar = false //Espacio o fuera de rango
+                break
+            }
+            if (c > ' ' && c < '0' || c >= ':' && c < 'A' || c >= '[' && c < 'a' || c >= '{' && c.toInt() < 127) {
+                especial++
+            }
+            if (c >= '0' && c < ':') numero++
+            if (c >= 'A' && c < '[') mayuscula++
+            if (c >= 'a' && c < '{') minuscula++
+            seguidos = if (c == ultimo) seguidos + 1 else 0
+            if (seguidos >= 7) {
+                validar = false // 3 seguidos
+                break
+            }
+            ultimo = c
+        }
+        validar = validar && especial > 0 && numero > 0 && minuscula > 0 && mayuscula > 0
+        return validar
     }
 
     /*
@@ -254,8 +284,12 @@ class RegisterActivityMCLB : AppCompatActivity() {
             Toast.makeText(this, "El Apellido esta En blanco", Toast.LENGTH_SHORT).show()
             return  false
         }
-        if(dni.isBlank() && !validarCedula(dni)){
+        if(dni.isBlank()){
             Toast.makeText(this, "La Cedula esta En blanco", Toast.LENGTH_SHORT).show()
+            return  false
+        }
+        if(!validarCedula(dni)){
+            Toast.makeText(this, "Cedula incorrecta", Toast.LENGTH_SHORT).show()
             return  false
         }
         if(email.isBlank()) {
@@ -270,14 +304,20 @@ class RegisterActivityMCLB : AppCompatActivity() {
             Toast.makeText(this, "El Password Vacio", Toast.LENGTH_SHORT).show()
             return false
         }
+        if(!validarPassword(password)) {
+            Toast.makeText(this, "Password no valido ", Toast.LENGTH_SHORT).show()
+            return false
+        }
         if(confirmPassword.isBlank()) {
             Toast.makeText(this, "El Verificacion Password esta En blanco", Toast.LENGTH_SHORT).show()
             return  false
         }
+
         if(password != confirmPassword) {
             Toast.makeText(this, "El Password no coinscide verificalo", Toast.LENGTH_SHORT).show()
             return  false
         }
+
         if(!email.isEmailValidMCLB()) {
             Toast.makeText(this, "El Email no es Valido", Toast.LENGTH_SHORT).show()
             return  false
