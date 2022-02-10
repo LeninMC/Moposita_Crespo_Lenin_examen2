@@ -17,7 +17,7 @@ class ApiRoutesMCLB {
         return retrofit.getClientWithTokenMCLB(API_URL, token).create(UsersRoutesMCLB::class.java)
     }
 
-
+//
     fun getCategoriesRoutesMCLB(token : String) : CategoriesRoutesMCLB{
         return  retrofit.getClientWithTokenMCLB(API_URL, token).create(CategoriesRoutesMCLB::class.java)
     }
