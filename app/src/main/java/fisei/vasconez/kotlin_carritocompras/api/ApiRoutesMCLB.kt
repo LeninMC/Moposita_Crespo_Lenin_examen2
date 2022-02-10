@@ -9,19 +9,19 @@ class ApiRoutesMCLB {
     //Inicializar rutas
     val retrofit = RetrofitClientMCLB()
 
-    fun getUsersRoutes(): UsersRoutesMCLB {
-        return retrofit.getClient(API_URL).create(UsersRoutesMCLB::class.java)
+    fun getUsersRoutesMCLB(): UsersRoutesMCLB {
+        return retrofit.getClientMCLB(API_URL).create(UsersRoutesMCLB::class.java)
     }
 
-    fun getUsersRoutesWithToken(token: String): UsersRoutesMCLB {
-        return retrofit.getClientWithToken(API_URL, token).create(UsersRoutesMCLB::class.java)
+    fun getUsersRoutesWithTokenMCLB(token: String): UsersRoutesMCLB {
+        return retrofit.getClientWithTokenMCLB(API_URL, token).create(UsersRoutesMCLB::class.java)
     }
 
 
-    fun getCategoriesRoutes(token : String) : CategoriesRoutesMCLB{
-        return  retrofit.getClientWithToken(API_URL, token).create(CategoriesRoutesMCLB::class.java)
+    fun getCategoriesRoutesMCLB(token : String) : CategoriesRoutesMCLB{
+        return  retrofit.getClientWithTokenMCLB(API_URL, token).create(CategoriesRoutesMCLB::class.java)
     }
-    fun getProductsRoutes(token : String) : ProductsRoutesMCLB{
-        return  retrofit.getClientWithToken(API_URL, token).create(ProductsRoutesMCLB::class.java)
+    fun getProductsRoutesMCLB(token : String) : ProductsRoutesMCLB{
+        return  retrofit.getClientWithTokenMCLB(API_URL, token).create(ProductsRoutesMCLB::class.java)
     }
 }

@@ -98,7 +98,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
                    telefono     = phone,
                    password     = password
                )
-            userProvider.register(user)?.enqueue(object : Callback<ResponseHttpMCLB>{
+            userProvider.registerMCLB(user)?.enqueue(object : Callback<ResponseHttpMCLB>{
                 override fun onResponse( //Responde Bien
                     call: Call<ResponseHttpMCLB>,
                     responseMCLB: Response<ResponseHttpMCLB>
@@ -138,7 +138,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
         val gson = Gson()
         val user = gson.fromJson(data, UserMCLB::class.java)
         Log.d("SharedPred", "Trasformacion : $user")
-        sharedPref.save("user", user)
+        sharedPref.saveMCLB("user", user)
 
     }
 

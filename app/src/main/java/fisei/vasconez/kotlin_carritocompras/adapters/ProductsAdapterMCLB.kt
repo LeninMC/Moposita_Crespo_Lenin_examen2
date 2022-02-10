@@ -37,16 +37,16 @@ class ProductsAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<Pro
         Glide.with(context).load(product.image1).into(holder.imageViewProduct) //Establece la imagen
 
 
-        holder.itemView.setOnClickListener{goToDetail(product)}
+        holder.itemView.setOnClickListener{goToDetailMCLB(product)}
     }
 
     /*
     * Funcion para enviar al activity de detalle del producto
      */
-    private fun goToDetail(productMCLB : ProductMCLB){
+    private fun goToDetailMCLB(productMCLB : ProductMCLB){
 
         val i = Intent(context, ClientProductsDetailActivityMCLB::class.java)
-        i.putExtra("product", productMCLB.toJson())
+        i.putExtra("product", productMCLB.toJsonMCLB())
         context.startActivity(i)
 
     }

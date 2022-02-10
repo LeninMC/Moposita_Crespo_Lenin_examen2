@@ -104,7 +104,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
 
         //  Cuando solo actualizar los datos mas no la imagen
         if (imageFile != null) {
-            usersProviderMCLB?.update(imageFile!!, userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
+            usersProviderMCLB?.updateMCLB(imageFile!!, userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
                     call: Call<ResponseHttpMCLB>,
                     responseMCLB: Response<ResponseHttpMCLB>
@@ -129,7 +129,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
                 }
             })
         } else {
-            usersProviderMCLB?.updateWithoutImage( userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
+            usersProviderMCLB?.updateWithoutImageMCLB( userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
                     call: Call<ResponseHttpMCLB>,
                     responseMCLB: Response<ResponseHttpMCLB>
@@ -199,7 +199,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
         val gson = Gson()
         val user = gson.fromJson(data, UserMCLB::class.java)
         Log.d("SharedPred", "Trasformacion : $user")
-        sharedPrefMCLB?.save("user", user)
+        sharedPrefMCLB?.saveMCLB("user", user)
 
     }
 

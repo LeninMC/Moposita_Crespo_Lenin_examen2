@@ -53,7 +53,7 @@ class ClientProductsListActivityMCLB : AppCompatActivity() {
 
     private fun getProductsMCLB (){
         Log.d(TAG, "error IDcATEGORIA : $idCategory")
-        productsProviderMCLB?.findByCategory(idCategory!!)?.enqueue(object : Callback<ArrayList<ProductMCLB>>{
+        productsProviderMCLB?.findByCategoryMCLB(idCategory!!)?.enqueue(object : Callback<ArrayList<ProductMCLB>>{
             override fun onResponse(
                 call: Call<ArrayList<ProductMCLB>>,
                 response: Response<ArrayList<ProductMCLB>>

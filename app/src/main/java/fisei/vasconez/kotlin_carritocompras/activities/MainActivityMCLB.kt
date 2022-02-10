@@ -66,7 +66,7 @@ class MainActivityMCLB : AppCompatActivity() {
         val password = editTextPassword?.text.toString()
 
         if (isValidarFormMCLB(email, password)) {
-            usersProvider.login(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
+            usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
                     call: Call<ResponseHttpMCLB>,
                     responseMCLB: Response<ResponseHttpMCLB>
@@ -131,7 +131,7 @@ class MainActivityMCLB : AppCompatActivity() {
         val gson = Gson()
         val user = gson.fromJson(data, UserMCLB::class.java)
         Log.d("SharedPred", "Trasformacion : $user")
-        sharedPref.save("user", user)
+        sharedPref.saveMCLB("user", user)
 
     }
 

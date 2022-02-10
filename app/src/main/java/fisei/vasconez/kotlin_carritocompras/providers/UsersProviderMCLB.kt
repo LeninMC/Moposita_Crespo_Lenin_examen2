@@ -17,30 +17,30 @@ class UsersProviderMCLB(val token : String? = null) {
 
     init {
         val api = ApiRoutesMCLB()
-        usersRoutesMCLB = api.getUsersRoutes()
+        usersRoutesMCLB = api.getUsersRoutesMCLB()
         if(token != null ){
-            usersRoutesMCLBToken = api.getUsersRoutesWithToken(token!!)
+            usersRoutesMCLBToken = api.getUsersRoutesWithTokenMCLB(token!!)
         }
 
     }
 
-    fun register (userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLB?.register(userMCLB)
+    fun registerMCLB (userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
+        return usersRoutesMCLB?.registerMCLB(userMCLB)
     }
 
-    fun login (email : String , password : String ): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLB?.login(email, password)
+    fun loginMCLB (email : String, password : String ): Call<ResponseHttpMCLB>?{
+        return usersRoutesMCLB?.loginMCLB(email, password)
     }
 
-    fun update (file : File, userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
+    fun updateMCLB (file : File, userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file )
         val image = MultipartBody.Part.createFormData("image", file.name, reqFile)
-        val requestBody = RequestBody.create(MediaType.parse("text/plain"), userMCLB.toJson())
+        val requestBody = RequestBody.create(MediaType.parse("text/plain"), userMCLB.toJsonMCLB())
 
-        return  usersRoutesMCLBToken?.update(image, requestBody, token!!)
+        return  usersRoutesMCLBToken?.updateMCLB(image, requestBody, token!!)
     }
 
-    fun updateWithoutImage (userMCLB : UserMCLB ): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLBToken?.updateWithoutImage(userMCLB, token!!)
+    fun updateWithoutImageMCLB (userMCLB : UserMCLB ): Call<ResponseHttpMCLB>?{
+        return usersRoutesMCLBToken?.updateWithoutImageMCLB(userMCLB, token!!)
     }
 }

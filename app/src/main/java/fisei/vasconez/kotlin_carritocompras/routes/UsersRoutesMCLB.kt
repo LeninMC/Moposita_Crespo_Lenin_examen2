@@ -9,24 +9,24 @@ import retrofit2.http.*
 
 interface UsersRoutesMCLB {
     @POST("clientes/create")
-    fun register(@Body userMCLB : UserMCLB): Call<ResponseHttpMCLB>
+    fun registerMCLB(@Body userMCLB : UserMCLB): Call<ResponseHttpMCLB>
 
 
     @FormUrlEncoded
-    @POST("clientes/login")
-    fun login (@Field("email") email : String , @Field("password") password : String)  : Call<ResponseHttpMCLB>
+    @POST("clientes/loginMCLB")
+    fun loginMCLB (@Field("email") email : String, @Field("password") password : String)  : Call<ResponseHttpMCLB>
 
 
     @Multipart //Para Actualizar data y subir Imagenes
-    @PUT("clientes/update")
-    fun update (
+    @PUT("clientes/updateMCLB")
+    fun updateMCLB (
         @Part image: MultipartBody.Part,
         @Part("user") user: RequestBody,
         @Header("Authorization") token : String
     ): Call<ResponseHttpMCLB>
 
-    @PUT("clientes/updateWithoutImage")  //Para actualizar los datos sin la imagen
-    fun updateWithoutImage (
+    @PUT("clientes/updateWithoutImageMCLB")  //Para actualizar los datos sin la imagen
+    fun updateWithoutImageMCLB (
         @Body userMCLB : UserMCLB,
         @Header("Authorization") token : String
     ): Call<ResponseHttpMCLB>

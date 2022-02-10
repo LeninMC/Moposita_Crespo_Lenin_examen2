@@ -6,15 +6,15 @@ import retrofit2.http.*
 
 interface ProductsRoutesMCLB {
 
-    @GET("products/getAll")
-    fun getAll (
+    @GET("products/getAllMCLB")
+    fun getAllMCLB (
         @Header("Authorization") token : String
     ): Call<ArrayList<ProductMCLB>>
 
 
     //TODO solo por categoria la peticion
-    @GET("products/findByCategory/{idcategoria}")
-    fun findByCategory (
+    @GET("products/findByCategoryMCLB/{idcategoria}")
+    fun findByCategoryMCLB (
         @Path("idcategoria") idcategoria : String,
         @Header("Authorization") token : String
     ): Call<ArrayList<ProductMCLB>>

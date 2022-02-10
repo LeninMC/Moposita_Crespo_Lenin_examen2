@@ -52,10 +52,10 @@ class ClientProfileFragmentMCLB : Fragment() {
         imageviewLogout = myView?.findViewById(R.id.imageview_logout)
 
 
-        imageviewLogout?.setOnClickListener{logout()}
-        buttonUpdateProfile?.setOnClickListener{goToUpdate()}
+        imageviewLogout?.setOnClickListener{logoutMCLB()}
+        buttonUpdateProfile?.setOnClickListener{goToUpdateMCLB()}
 
-        getUserFromSession()
+        getUserFromSessionMCLB()
 
         //TODO: Hacemos referencia a la Data que se guarda en la SharedPref
         textViewNombre?.text = "${userMCLB?.nombre} ${userMCLB?.apellido}"
@@ -74,7 +74,7 @@ class ClientProfileFragmentMCLB : Fragment() {
     /*
    *  TODO Obtener la data almacena de Session de SharedPref
     */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
@@ -86,7 +86,7 @@ class ClientProfileFragmentMCLB : Fragment() {
     /*
     *   TODO Redirigir a la activity de Update
      */
-    private fun goToUpdate(){
+    private fun goToUpdateMCLB(){
         val i = Intent(requireContext(), ClientUpdateActivityMCLB ::class.java)
         startActivity(i)
     }
@@ -95,7 +95,7 @@ class ClientProfileFragmentMCLB : Fragment() {
     /*
    *   Para cerrar la session de usuario almacenada en ShardPref
     */
-    private fun logout() {
+    private fun logoutMCLB() {
         sharedPrefMCLB?.remove("user")
         val i = Intent(requireContext(), MainActivityMCLB::class.java)
         startActivity(i)

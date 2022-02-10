@@ -6,8 +6,8 @@ import retrofit2.http.*
 
 interface CategoriesRoutesMCLB {
 
-    @GET("categorias/getAll")
-    fun getAll (
+    @GET("categorias/getAllMCLB")
+    fun getAllMCLB (
         @Header("Authorization") token : String
     ): Call<ArrayList<CategoryMCLB>>
 }

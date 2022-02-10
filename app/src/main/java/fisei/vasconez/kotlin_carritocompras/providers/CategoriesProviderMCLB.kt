@@ -10,9 +10,9 @@ class CategoriesProviderMCLB (val token : String) {
 
     init {
         val api  =ApiRoutesMCLB()
-        categoriesRoutesMCLB = api.getCategoriesRoutes(token)
+        categoriesRoutesMCLB = api.getCategoriesRoutesMCLB(token)
     }
-    fun getAll () : Call<ArrayList<CategoryMCLB>>?{
-        return categoriesRoutesMCLB?.getAll(token)
+    fun getAllMCLB () : Call<ArrayList<CategoryMCLB>>?{
+        return categoriesRoutesMCLB?.getAllMCLB(token)
     }
 }

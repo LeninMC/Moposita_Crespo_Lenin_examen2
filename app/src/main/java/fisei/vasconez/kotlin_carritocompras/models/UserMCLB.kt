@@ -23,7 +23,7 @@ class UserMCLB(
     * Transformar esta clase en un objeto JSON
      */
 
-    fun toJson (): String{
+    fun toJsonMCLB (): String{
         return  Gson().toJson(this)
     }
 }

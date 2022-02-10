@@ -57,7 +57,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
      */
     private fun saveImageMCLB() {
         if (imageFile != null && userMCLB != null) {
-            usersProviderMCLB?.update(imageFile!!, userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
+            usersProviderMCLB?.updateMCLB(imageFile!!, userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
                     call: Call<ResponseHttpMCLB>,
                     responseMCLB: Response<ResponseHttpMCLB>
@@ -145,7 +145,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
         val gson = Gson()
         val user = gson.fromJson(data, UserMCLB::class.java)
         Log.d("SharedPred", "Trasformacion : $user")
-        sharedPrefMCLB?.save("user", user)
+        sharedPrefMCLB?.saveMCLB("user", user)
         goToClientHomeMCLB()
 
     }

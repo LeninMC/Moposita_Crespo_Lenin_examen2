@@ -6,14 +6,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClientMCLB {
 
-    fun getClient (url : String) : Retrofit{
+    fun getClientMCLB (url : String) : Retrofit{
         return Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    fun getClientWithToken(url : String, token : String ): Retrofit{
+    fun getClientWithTokenMCLB(url : String, token : String ): Retrofit{
         val client = OkHttpClient.Builder()
         client.addInterceptor{ chain ->
             val request = chain.request()

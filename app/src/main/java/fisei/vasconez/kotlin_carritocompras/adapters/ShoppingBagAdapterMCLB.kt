@@ -16,24 +16,24 @@ import fisei.vasconez.kotlin_carritocompras.activities.Client.shopping_bag.Clien
 import fisei.vasconez.kotlin_carritocompras.models.ProductMCLB
 import fisei.vasconez.kotlin_carritocompras.utils.SharedPrefMCLB
 
-class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<ProductMCLB>): RecyclerView.Adapter<ShoppingBagAdapterMCLB.ShoppingBagViewHolder>() {
+class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<ProductMCLB>): RecyclerView.Adapter<ShoppingBagAdapterMCLB.ShoppingBagViewHolderMCLB>() {
 
     val sharedPref = SharedPrefMCLB(context)
 
     init {
-        (context as ClientShoppingBagActivityMCLB).setTotal(getTotal())
+        (context as ClientShoppingBagActivityMCLB).setTotal(getTotalMCLB())
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingBagViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingBagViewHolderMCLB {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_shopping_bag_mclb, parent, false)
-        return ShoppingBagViewHolder(view)
+        return ShoppingBagViewHolderMCLB(view)
     }
 
     override fun getItemCount(): Int {
         return productMCLBS.size
     }
 
-    override fun onBindViewHolder(holder: ShoppingBagViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ShoppingBagViewHolderMCLB, position: Int) {
 
         val product = productMCLBS[position] // CADA UNA DE LAS CATEGORIAS
 
@@ -42,9 +42,9 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
         holder.textViewCounter.text = "${product.quantity}"
         holder.textViewPrice.text ="${product.precioUnitario!! * product.quantity!!}"
         Glide.with(context).load(product.image1).into(holder.imageViewProduct) //Establece la imagen
-        holder.imageViewAdd.setOnClickListener{addItem(product, holder)}
-        holder.imageViewRemove.setOnClickListener{removeItem(product, holder)}
-        holder.imageViewDelete.setOnClickListener{ deleteItem(position)}
+        holder.imageViewAdd.setOnClickListener{addItemMCLB(product, holder)}
+        holder.imageViewRemove.setOnClickListener{removeItemMCLB(product, holder)}
+        holder.imageViewDelete.setOnClickListener{ deleteItemMCLB(position)}
 
       //  holder.itemView.setOnClickListener{goToDetail(product)}
     }
@@ -53,7 +53,7 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
     /*
     * Calcular el total
      */
-    private  fun getTotal ():Double{
+    private  fun getTotalMCLB ():Double{
         var total = 0.0
         for (p in productMCLBS){
             total = total + (p.quantity!! * p.precioUnitario!!)
@@ -63,7 +63,7 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
     /*
   *   Obtener el indice del producto seleccionado en la bolsa
    */
-    private  fun getIndexOf(idProduct : String): Int{
+    private  fun getIndexOfMCLB(idProduct : String): Int{
         var pos = 0
 
         for ( p in productMCLBS){
@@ -76,45 +76,45 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
         return -1
     }
 
-    private fun deleteItem(position : Int){
+    private fun deleteItemMCLB(position : Int){
         productMCLBS.removeAt(position)
         notifyItemRemoved(position)
         notifyItemRangeRemoved(position, productMCLBS.size)
-        sharedPref.save("order", productMCLBS)
-        (context as ClientShoppingBagActivityMCLB).setTotal(getTotal())
+        sharedPref.saveMCLB("order", productMCLBS)
+        (context as ClientShoppingBagActivityMCLB).setTotal(getTotalMCLB())
     }
 
     /*
     *   Aumentar cantidad al producto
      */
 
-    private fun addItem (productMCLB : ProductMCLB, holder : ShoppingBagViewHolder){
+    private fun addItemMCLB (productMCLB : ProductMCLB, holder : ShoppingBagViewHolderMCLB){
 
-        val index = getIndexOf(productMCLB.id!!)
+        val index = getIndexOfMCLB(productMCLB.id!!)
         productMCLB.quantity  = productMCLB.quantity!! + 1
         productMCLBS[index].quantity = productMCLB.quantity
 
         holder.textViewCounter.text = "${productMCLB.quantity}"
         holder.textViewPrice.text = " $ ${productMCLB.quantity!! * productMCLB.precioUnitario!!}"
-        sharedPref.save("order", productMCLBS)
-        (context as ClientShoppingBagActivityMCLB).setTotal(getTotal())
+        sharedPref.saveMCLB("order", productMCLBS)
+        (context as ClientShoppingBagActivityMCLB).setTotal(getTotalMCLB())
     }
 
     /*
     *   Disminuir cantidad al producto
      */
 
-    private fun removeItem (productMCLB : ProductMCLB, holder : ShoppingBagViewHolder){
+    private fun removeItemMCLB (productMCLB : ProductMCLB, holder : ShoppingBagViewHolderMCLB){
 
         if(productMCLB.quantity!! > 1){
-            val index = getIndexOf(productMCLB.id!!)
+            val index = getIndexOfMCLB(productMCLB.id!!)
             productMCLB.quantity  = productMCLB.quantity!! - 1
             productMCLBS[index].quantity = productMCLB.quantity
 
             holder.textViewCounter.text = "${productMCLB.quantity}"
             holder.textViewPrice.text = " $ ${productMCLB.quantity!! * productMCLB.precioUnitario!!}"
-            sharedPref.save("order", productMCLBS)
-            (context as ClientShoppingBagActivityMCLB).setTotal(getTotal())
+            sharedPref.saveMCLB("order", productMCLBS)
+            (context as ClientShoppingBagActivityMCLB).setTotal(getTotalMCLB())
         }
 
 
@@ -124,17 +124,17 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
     /*
     * Funcion para enviar al activity de detalle del producto
      */
-    private fun goToDetail(productMCLB : ProductMCLB){
+    private fun goToDetailMCLB(productMCLB : ProductMCLB){
 
         val i = Intent(context, ClientProductsDetailActivityMCLB::class.java)
-        i.putExtra("product", productMCLB.toJson())
+        i.putExtra("product", productMCLB.toJsonMCLB())
         context.startActivity(i)
 
     }
 
 
 
-    class ShoppingBagViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ShoppingBagViewHolderMCLB(view: View): RecyclerView.ViewHolder(view) {
 
         val textViewName: TextView
         val textViewPrice: TextView

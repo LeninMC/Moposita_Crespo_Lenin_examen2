@@ -55,9 +55,9 @@ class ClientCategoriesFragmentMCLB : Fragment() {
         recyclerViewCategories = myView?.findViewById(R.id.recyclerview_categories)
         recyclerViewCategories?.layoutManager = LinearLayoutManager(requireContext()) //Que los elemtos se mostraran uno debajo del otro
         sharedPrefMCLB = SharedPrefMCLB(requireActivity())
-        getUserFromSession()
+        getUserFromSessionMCLB()
         categoriesProviderMCLB = CategoriesProviderMCLB(userMCLB?.session_token!!);
-        getCategories()
+        getCategoriesMCLB()
 
         return myView
     }
@@ -76,7 +76,7 @@ class ClientCategoriesFragmentMCLB : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId == R.id.item_shopping_bag){
-            goToShoppingBagList()
+            goToShoppingBagListMCLB()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -84,7 +84,7 @@ class ClientCategoriesFragmentMCLB : Fragment() {
      * NAVEGAR AL ACTIVITY
       */
 
-    private fun goToShoppingBagList(){
+    private fun goToShoppingBagListMCLB(){
         val i = Intent(requireContext(), ClientShoppingBagActivityMCLB::class.java)
         startActivity(i)
     }
@@ -93,8 +93,8 @@ class ClientCategoriesFragmentMCLB : Fragment() {
     /*
     *
      */
-    private fun getCategories(){
-        categoriesProviderMCLB?.getAll()?.enqueue(object : Callback<ArrayList<CategoryMCLB>>{
+    private fun getCategoriesMCLB(){
+        categoriesProviderMCLB?.getAllMCLB()?.enqueue(object : Callback<ArrayList<CategoryMCLB>>{
             override fun onResponse(
                 call: Call<ArrayList<CategoryMCLB>>,
                 response: Response<ArrayList<CategoryMCLB>>
@@ -117,7 +117,7 @@ class ClientCategoriesFragmentMCLB : Fragment() {
     /*
 *  TODO Obtener la data almacena de Session de SharedPref
  */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session

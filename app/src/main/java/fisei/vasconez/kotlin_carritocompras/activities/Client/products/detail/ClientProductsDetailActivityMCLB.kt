@@ -102,7 +102,7 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
             selectedProducts[index].quantity = counter
         }
 
-        sharedPrefMCLB?.save("order", selectedProducts)
+        sharedPrefMCLB?.saveMCLB("order", selectedProducts)
         Toast.makeText(this, "Producto Agregado 🛒", Toast.LENGTH_SHORT).show()
     }
 

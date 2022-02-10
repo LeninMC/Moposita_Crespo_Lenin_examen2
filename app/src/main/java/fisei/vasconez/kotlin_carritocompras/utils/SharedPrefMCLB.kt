@@ -22,7 +22,7 @@ class SharedPrefMCLB(activity: Activity) {
     /*
     *   Funcion para guardar el token
      */
-    fun save(key: String, objeto: Any) {
+    fun saveMCLB(key: String, objeto: Any) {
         try {
 
             val gson = Gson()

@@ -36,13 +36,13 @@ class CategoriesAdapterMCLB(val context: Activity, val categoryMCLBS: ArrayList<
         holder.textViewCategory.text = category.nombre
         Glide.with(context).load(category.image).into(holder.imageViewCategory) //Establece la imagen
 
-        holder.itemView.setOnClickListener{goToProducts(category)}
+        holder.itemView.setOnClickListener{goToProductsMCLB(category)}
     }
 
     /*
     *   Una vez escogida la categoria le enviamos el id de la categoria para poder listar los productos segun la categoria
      */
-    private  fun  goToProducts (categoryMCLB : CategoryMCLB){
+    private  fun  goToProductsMCLB (categoryMCLB : CategoryMCLB){
         val i = Intent(context, ClientProductsListActivityMCLB::class.java)
         Log.d("AdapterCategoria", "$categoryMCLB")
         i.putExtra("idcategoria", categoryMCLB.idcategoria)
