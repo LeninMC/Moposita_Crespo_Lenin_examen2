@@ -64,7 +64,7 @@ class MainActivityMCLB : AppCompatActivity() {
     private fun loginMCLB() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
-
+        regex ="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"
        if(password.length > 5){
            if (isValidarFormMCLB(email, password)) {
                usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
