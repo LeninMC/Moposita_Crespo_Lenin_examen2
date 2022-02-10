@@ -36,7 +36,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
@@ -49,7 +49,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Password"
             android:inputType="text"
             android:padding="15dp"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_mclb"
             android:backgroundTint="@color/green"
             android:text="Iniciar Sesion" />
 
@@ -78,7 +78,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_arrow_right" />
+            android:src="@drawable/ic_arrow_right_mclb" />
 
         <TextView
             android:layout_width="wrap_content"

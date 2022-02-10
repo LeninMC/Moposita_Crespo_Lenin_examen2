@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.Client.products.list.ClientProductsListActivity">
-<include layout="@layout/action_bar"/>
+<include layout="@layout/action_bar_mclb"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_products"

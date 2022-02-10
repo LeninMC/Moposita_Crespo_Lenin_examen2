@@ -25,7 +25,7 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingBagViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_shopping_bag, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_shopping_bag_mclb, parent, false)
         return ShoppingBagViewHolder(view)
     }
 

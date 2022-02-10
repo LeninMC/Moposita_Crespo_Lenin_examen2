@@ -43,7 +43,7 @@ class ClientCategoriesFragmentMCLB : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        myView = inflater.inflate(R.layout.fragment_client_categories, container, false)
+        myView = inflater.inflate(R.layout.fragment_client_categories_mclb, container, false)
 
         setHasOptionsMenu(true) //Habilita las opcciones de menu para poder posicionar el icon bag
 
@@ -67,7 +67,7 @@ class ClientCategoriesFragmentMCLB : Fragment() {
      */
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_shopping_bag , menu)
+        inflater.inflate(R.menu.menu_shopping_bag_mclb , menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
     /*

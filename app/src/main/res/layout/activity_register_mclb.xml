@@ -35,7 +35,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Nombre"
             android:inputType="text"
             android:padding="15dp" />
@@ -47,7 +47,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Apellido"
             android:inputType="text"
             android:padding="15dp" />
@@ -60,7 +60,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Direccion"
             android:inputType="text"
             android:padding="15dp" />
@@ -72,7 +72,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="15dp" />
@@ -84,7 +84,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Telefono"
             android:inputType="phone"
             android:padding="15dp" />
@@ -96,7 +96,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="15dp" />
@@ -108,7 +108,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Confimar Password"
             android:inputType="textPassword"
             android:padding="15dp" />
@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_mclb"
             android:text="Registrarse" />
 
         <ImageView
@@ -135,7 +135,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
-            android:src="@drawable/ic_arrow_left" />
+            android:src="@drawable/ic_arrow_left_mclb" />
 
         <TextView
             android:layout_width="wrap_content"

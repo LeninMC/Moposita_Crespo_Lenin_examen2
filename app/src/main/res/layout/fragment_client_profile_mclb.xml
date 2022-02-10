@@ -17,7 +17,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/ic_person_mclb"
             app:civ_border_color="@color/gray"
             app:civ_border_width="5dp"
             app:civ_circle_background_color="@color/gray_light" />
@@ -35,7 +35,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic__person_pin_gray" />
+                android:src="@drawable/ic__person_pin_gray_mclb" />
 
             <TextView
                 android:id="@+id/textview_nombre"
@@ -57,7 +57,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic__email_gray" />
+                android:src="@drawable/ic__email_gray_mclb" />
 
             <TextView
                 android:id="@+id/textview_email"
@@ -80,7 +80,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_phone_gray" />
+                android:src="@drawable/ic_phone_gray_mclb" />
 
             <TextView
                 android:id="@+id/textview_telefono"
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_mclb"
             android:text="Editar Perfil"
             android:textColor="@color/black"
             app:backgroundTint="@color/gray" />
@@ -118,7 +118,7 @@
         android:id="@+id/imageview_logout"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:src="@drawable/ic_power"
+        android:src="@drawable/ic_power_mclb"
         android:layout_gravity="right"
         android:layout_margin="15dp"/>
         />

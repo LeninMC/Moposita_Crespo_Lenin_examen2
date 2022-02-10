@@ -21,7 +21,7 @@ class CategoriesAdapterMCLB(val context: Activity, val categoryMCLBS: ArrayList<
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_categories, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_categories_mclb, parent, false)
         return CategoriesViewHolder(view)
     }
 

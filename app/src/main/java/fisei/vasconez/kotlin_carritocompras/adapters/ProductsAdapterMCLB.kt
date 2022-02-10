@@ -20,7 +20,7 @@ class ProductsAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<Pro
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_product, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_product_mclb, parent, false)
         return ProductsViewHolder(view)
     }
 

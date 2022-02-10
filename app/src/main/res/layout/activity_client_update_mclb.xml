@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.Client.update.ClientUpdateActivityMCLB">
 
-    <include layout="@layout/action_bar"/>
+    <include layout="@layout/action_bar_mclb"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/ic_person_mclb"
             app:civ_border_color="@color/gray"
             app:civ_border_width="5dp"
             app:civ_circle_background_color="@color/gray_light" />
@@ -30,7 +30,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Nombre"
             android:inputType="text"
             android:padding="15dp" />
@@ -42,7 +42,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Apellido"
             android:inputType="text"
             android:padding="15dp" />
@@ -55,7 +55,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Direccion"
             android:inputType="text"
             android:padding="15dp" />
@@ -69,7 +69,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="Telefono"
             android:inputType="phone"
             android:padding="15dp" />
@@ -81,7 +81,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/edittext_custom"
+            android:background="@drawable/edittext_custom_mclb"
             android:hint="DNI"
             android:inputType="text"
             android:padding="15dp" />
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_mclb"
             android:layout_marginBottom="20dp"
             android:text="Actualizar" />
 

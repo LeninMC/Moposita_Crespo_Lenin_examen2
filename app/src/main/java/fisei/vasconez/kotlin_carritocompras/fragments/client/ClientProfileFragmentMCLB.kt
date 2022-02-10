@@ -40,7 +40,7 @@ class ClientProfileFragmentMCLB : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-       myView =  inflater.inflate(R.layout.fragment_client_profile, container, false)
+       myView =  inflater.inflate(R.layout.fragment_client_profile_mclb, container, false)
 
         sharedPrefMCLB = SharedPrefMCLB(requireActivity())
         //TODO Instanciar

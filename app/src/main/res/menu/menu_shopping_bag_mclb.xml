@@ -4,6 +4,6 @@
 
     <item android:id="@+id/item_shopping_bag"
         android:title=""
-        android:icon="@drawable/ic_bag"
+        android:icon="@drawable/ic_bag_mclb"
         app:showAsAction="always"/>
 </menu>

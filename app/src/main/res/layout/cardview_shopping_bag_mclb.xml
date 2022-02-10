@@ -43,7 +43,7 @@
                 android:id="@+id/imageview_add"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_add" />
+                android:src="@drawable/ic_add_mclb" />
 
             <TextView
                 android:id="@+id/textview_counter"
@@ -59,7 +59,7 @@
                 android:id="@+id/imageview_remove"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_remove" />
+                android:src="@drawable/ic_remove_mclb" />
 
 
         </LinearLayout>
@@ -83,7 +83,7 @@
             android:id="@+id/imageview_delete"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/ic_delete"
+            android:src="@drawable/ic_delete_mclb"
             android:layout_marginTop="10dp" />
 
 

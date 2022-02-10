@@ -31,7 +31,7 @@ class ClientShoppingBagActivityMCLB : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client_shooping_bag)
+        setContentView(R.layout.activity_client_shooping_bag_mclb)
 
         sharedPrefMCLB = SharedPrefMCLB(this)
         recyclerViewShoppingBag = findViewById(R.id.recyclerview_shopping_bag)
