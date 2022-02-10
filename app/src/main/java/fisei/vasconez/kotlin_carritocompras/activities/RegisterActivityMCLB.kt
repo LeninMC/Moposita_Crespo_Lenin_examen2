@@ -83,6 +83,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
         if (isValidarFormMCLB(
                 phone           = phone,
                 lastName        = lastname,
+                dni             = dni,
                 email           = email,
                 password        = password,
                 confirmPassword = confirmPassword,
@@ -93,6 +94,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
                val user = UserMCLB(
                    nombre       = name,
                    apellido     =  lastname,
+                   cedula       = dni,
                    direccion    = adress,
                    email        = email,
                    telefono     = phone,
@@ -238,6 +240,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
     private fun isValidarFormMCLB(
         name            : String ,
         lastName        : String ,
+        dni             : String ,
         email           : String,
         phone           :  String ,
         password        : String,
@@ -249,6 +252,10 @@ class RegisterActivityMCLB : AppCompatActivity() {
         }
         if(lastName.isBlank()){
             Toast.makeText(this, "El Apellido esta En blanco", Toast.LENGTH_SHORT).show()
+            return  false
+        }
+        if(dni.isBlank() && !validarCedula(dni)){
+            Toast.makeText(this, "La Cedula esta En blanco", Toast.LENGTH_SHORT).show()
             return  false
         }
         if(email.isBlank()) {
