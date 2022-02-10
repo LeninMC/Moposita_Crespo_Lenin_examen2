@@ -31,21 +31,21 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
         //buttonLogout = findViewById(R.id.btn_logout)
         bottomNavigation = findViewById(R.id.bottom_navegation)
         sharedPrefMCLB = SharedPrefMCLB(this)
-        openFragment(ClientCategoriesFragmentMCLB()) //Abre un fragmento por defecto
+        openFragmentMCLB(ClientCategoriesFragmentMCLB()) //Abre un fragmento por defecto
         //cerrar Session
         //buttonLogout?.setOnClickListener { logout() }
         bottomNavigation?.setOnItemSelectedListener {
             when (it.itemId) { //Equivalente al Switch
                 R.id.item_home -> {
-                    openFragment(ClientCategoriesFragmentMCLB())
+                    openFragmentMCLB(ClientCategoriesFragmentMCLB())
                     true
                 }
                 R.id.item_orders -> {
-                    openFragment(ClientOrdersFragment())
+                    openFragmentMCLB(ClientOrdersFragment())
                     true
                 }
                 R.id.item_profile -> {
-                    openFragment(ClientProfileFragmentMCLB())
+                    openFragmentMCLB(ClientProfileFragmentMCLB())
                     true
                 }
                 else -> false
@@ -53,13 +53,13 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
             }
         }
 
-        getUserFromSession()
+        getUserFromSessionMCLB()
     }
 
     /*
     *   Funcion para mostrar el fragmento segun lo seleccionado
      */
-    private fun openFragment(fragment: Fragment) {
+    private fun openFragmentMCLB(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.addToBackStack(null)
@@ -69,7 +69,7 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
     /*
     *   Para cerrar la session de usuario almacenada en ShardPref
      */
-    private fun logout() {
+    private fun logoutMCLB() {
         sharedPrefMCLB?.remove("user")
         val i = Intent(this, MainActivityMCLB::class.java)
         startActivity(i)
@@ -78,7 +78,7 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
     /*
     *   Obtener la data almacena de Session de SharedPref
      */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
