@@ -65,9 +65,9 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
         editTextCedula = findViewById(R.id.edittext_cedula)
         editTextTelefono = findViewById(R.id.edittext_phone)
 
-        getUserFromSession()
-        circleImageUser?.setOnClickListener { selectImage() }
-        buttonUpdate?.setOnClickListener { saveData() }
+        getUserFromSessionMCLB()
+        circleImageUser?.setOnClickListener { selectImageMCLB() }
+        buttonUpdate?.setOnClickListener { saveDataMCLB() }
 
 
         usersProviderMCLB = UsersProviderMCLB(userMCLB?.session_token)
@@ -86,7 +86,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
     /*
    *   Para confirmar el cambio de imagen y proceder a subir a firebase
     */
-    private fun saveData() {
+    private fun saveDataMCLB() {
         //TODO Recoger Datos
         val name = editTextNombre?.text.toString()
         val dni = editTextCedula?.text.toString()
@@ -114,7 +114,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
                     Toast.makeText(this@ClientUpdateActivityMCLB , "La Actualizacion Correcta❤️", Toast.LENGTH_LONG).show()
                     //TODO Si la respuesta no me devuelve nada controlar el usuario sin datos
                     if(responseMCLB.body()?.isSuccess == true){
-                        saveUserInSession(responseMCLB.body()?.data.toString())
+                        saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
                     }
                 }
 
@@ -139,7 +139,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
                     Toast.makeText(this@ClientUpdateActivityMCLB , "La Actualizacion Correcta❤️", Toast.LENGTH_LONG).show()
                     //TODO Si la respuesta no me devuelve nada controlar el usuario sin datos
                     if(responseMCLB.body()?.isSuccess == true){
-                        saveUserInSession(responseMCLB.body()?.data.toString())
+                        saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
                     }
 
                 }
@@ -179,7 +179,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
             }
         }
 
-    private fun selectImage() {
+    private fun selectImageMCLB() {
         //ImagePicker Permite seleccionar de galeria o tomar foto
         ImagePicker.with(this)
             .crop()
@@ -193,7 +193,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
     /*
  *   Almacenar el Session
   */
-    private fun saveUserInSession(data: String) {
+    private fun saveUserInSessionMCLB(data: String) {
         Log.d("SharedPred", "Save : $data")
 
         val gson = Gson()
@@ -206,7 +206,7 @@ class ClientUpdateActivityMCLB : AppCompatActivity() {
     /*
   *  TODO Obtener la data almacena de Session de SharedPref
    */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session

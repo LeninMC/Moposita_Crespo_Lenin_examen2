@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ClientProductsListActivity : AppCompatActivity() {
+class ClientProductsListActivityMCLB : AppCompatActivity() {
 
     val TAG = "ProductsListActivity"
     var recyclerViewProducts : RecyclerView? = null
@@ -42,16 +42,16 @@ class ClientProductsListActivity : AppCompatActivity() {
         sharedPrefMCLB = SharedPrefMCLB(this)
         //TODO Recibir los datos de la activity padre
         idCategory = intent.getStringExtra("idcategoria")
-        getUserFromSession()
+        getUserFromSessionMCLB()
         productsProviderMCLB = ProductsProviderMCLB(userMCLB?.session_token!!)
 
         recyclerViewProducts = findViewById(R.id.recyclerview_products)
         recyclerViewProducts?.layoutManager = GridLayoutManager(this, 2)//este forma la pantalla en grid de columnas de 2
-        getProducts()
+        getProductsMCLB()
 
     }
 
-    private fun getProducts (){
+    private fun getProductsMCLB (){
         Log.d(TAG, "error IDcATEGORIA : $idCategory")
         productsProviderMCLB?.findByCategory(idCategory!!)?.enqueue(object : Callback<ArrayList<ProductMCLB>>{
             override fun onResponse(
@@ -60,14 +60,14 @@ class ClientProductsListActivity : AppCompatActivity() {
             ) {
                if(response.body() != null){
                    productMCLBS = response.body()!!
-                   adapterMCLB = ProductsAdapterMCLB(this@ClientProductsListActivity, productMCLBS)
+                   adapterMCLB = ProductsAdapterMCLB(this@ClientProductsListActivityMCLB, productMCLBS)
                    recyclerViewProducts?.adapter = adapterMCLB
                    Log.d(TAG, "Peticion realizada con exito : ${response.body()}")
                }
             }
 
             override fun onFailure(call: Call<ArrayList<ProductMCLB>>, t: Throwable) {
-                Toast.makeText(this@ClientProductsListActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ClientProductsListActivityMCLB, "${t.message}", Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "error : ${t.message}")
             }
 
@@ -77,7 +77,7 @@ class ClientProductsListActivity : AppCompatActivity() {
     /*
 *  TODO Obtener la data almacena de Session de SharedPref
 */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session

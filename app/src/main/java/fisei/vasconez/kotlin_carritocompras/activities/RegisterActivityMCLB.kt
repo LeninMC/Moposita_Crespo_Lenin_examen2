@@ -56,18 +56,18 @@ class RegisterActivityMCLB : AppCompatActivity() {
         *   FUNCION QUE LLAMA AL ACTIVITY DE REGRESO AL LOGIN
          */
         imageViewGoToLogin?.setOnClickListener {
-            goToLogin()
+            goToLoginMCLB()
         }
         /*
         *   REALIZAR EL REGISTRO DEL USUARIO
          */
-        buttonRegister?.setOnClickListener{ register() }
+        buttonRegister?.setOnClickListener{ registerMCLB() }
     }
 
     /*
     *   REGISTRO DE USUARIO
      */
-    private fun register(){
+    private fun registerMCLB(){
         val name            = editTextName?.text.toString()
         //val dni             = editTextCedula?.text.toString()
         val adress          = editTextDireccion?.text.toString()
@@ -80,7 +80,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
         //Para lanzar la peticion
         var userProvider = UsersProviderMCLB()
 
-        if (isValidarForm(
+        if (isValidarFormMCLB(
                 phone           = phone,
                 lastName        = lastname,
                 email           = email,
@@ -105,10 +105,10 @@ class RegisterActivityMCLB : AppCompatActivity() {
                 ) {
                     if(responseMCLB.body()?.isSuccess == true){
                         //Si el Registro es Exitoso guardamos las datos del Usuario y lo redirigimos a HomeClient
-                        saveUserInSession(responseMCLB.body()?.data.toString())
+                        saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
 
                         //Navega a la Activity de Home
-                        goToClientHome()
+                        goToClientHomeMCLB()
                     }
                     Toast.makeText(this@RegisterActivityMCLB, responseMCLB.body()?.message, Toast.LENGTH_LONG).show()
                     Log.d(TAG, "Response Correcto : ${responseMCLB}")
@@ -132,7 +132,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
     /*
    *   Almacenar el Session
     */
-    private fun saveUserInSession(data: String) {
+    private fun saveUserInSessionMCLB(data: String) {
         Log.d("SharedPred", "Save : $data")
         val sharedPref = SharedPrefMCLB(this)
         val gson = Gson()
@@ -145,7 +145,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
     /*
    *   Navegar a la pantalla de Home si es la Autenticacion es Correcta
     */
-    private fun goToClientHome() {
+    private fun goToClientHomeMCLB() {
         //val i = Intent(this, ClientHomeActivity::class.java)
         val i = Intent(this, SaveImageActivityMCLB::class.java)
         i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Elimina el historial de Pantallas
@@ -154,16 +154,16 @@ class RegisterActivityMCLB : AppCompatActivity() {
 
     /*
     *   FUNCION PARA VALIDAR SI ES CORREO
-    *   String.isEmailValid hace que aplique para todos campos de tipo String
+    *   String.isEmailValidMCLB hace que aplique para todos campos de tipo String
      */
-    fun String.isEmailValid() : Boolean {
+    fun String.isEmailValidMCLB() : Boolean {
         return !TextUtils.isEmpty(this ) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
 
     /*
     *   VALIDACION DEL FORMULARIO
      */
-    private fun isValidarForm(
+    private fun isValidarFormMCLB(
         name            : String ,
         lastName        : String ,
         email           : String,
@@ -199,7 +199,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
             Toast.makeText(this, "El Password no coinscide verificalo", Toast.LENGTH_SHORT).show()
             return  false
         }
-        if(!email.isEmailValid()) {
+        if(!email.isEmailValidMCLB()) {
             Toast.makeText(this, "El Email no es Valido", Toast.LENGTH_SHORT).show()
             return  false
         }
@@ -211,7 +211,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
     /*
     * VOLVER A LA ACTIVITY DE LOGIN
      */
-    private fun goToLogin() {
+    private fun goToLoginMCLB() {
         val i = Intent(this, MainActivityMCLB::class.java)
         startActivity(i)
 

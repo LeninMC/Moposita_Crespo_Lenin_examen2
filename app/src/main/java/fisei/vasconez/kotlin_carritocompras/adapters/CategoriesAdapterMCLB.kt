@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fisei.vasconez.kotlin_carritocompras.R
-import fisei.vasconez.kotlin_carritocompras.activities.Client.products.list.ClientProductsListActivity
+import fisei.vasconez.kotlin_carritocompras.activities.Client.products.list.ClientProductsListActivityMCLB
 import fisei.vasconez.kotlin_carritocompras.models.CategoryMCLB
 import fisei.vasconez.kotlin_carritocompras.utils.SharedPrefMCLB
 
@@ -43,7 +43,7 @@ class CategoriesAdapterMCLB(val context: Activity, val categoryMCLBS: ArrayList<
     *   Una vez escogida la categoria le enviamos el id de la categoria para poder listar los productos segun la categoria
      */
     private  fun  goToProducts (categoryMCLB : CategoryMCLB){
-        val i = Intent(context, ClientProductsListActivity::class.java)
+        val i = Intent(context, ClientProductsListActivityMCLB::class.java)
         Log.d("AdapterCategoria", "$categoryMCLB")
         i.putExtra("idcategoria", categoryMCLB.idcategoria)
         context.startActivity(i)

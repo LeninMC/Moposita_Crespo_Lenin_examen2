@@ -41,21 +41,21 @@ class SaveImageActivityMCLB : AppCompatActivity() {
         setContentView(R.layout.activity_save_image_mclb)
 
         sharedPrefMCLB = SharedPrefMCLB(this)
-        getUserFromSession()
+        getUserFromSessionMCLB()
         usersProviderMCLB = UsersProviderMCLB(userMCLB?.session_token)
         circleImageUser = findViewById(R.id.circleimage_user)
         buttonConfirm = findViewById(R.id.btn_confirm)
         buttonNext = findViewById(R.id.btn_next)
 
-        circleImageUser?.setOnClickListener { selectImage() }
-        buttonNext?.setOnClickListener { goToClientHome() }
-        buttonConfirm?.setOnClickListener {saveImage()}
+        circleImageUser?.setOnClickListener { selectImageMCLB() }
+        buttonNext?.setOnClickListener { goToClientHomeMCLB() }
+        buttonConfirm?.setOnClickListener {saveImageMCLB()}
     }
 
     /*
     *   Para confirmar el cambio de imagen y proceder a subir a firebase
      */
-    private fun saveImage() {
+    private fun saveImageMCLB() {
         if (imageFile != null && userMCLB != null) {
             usersProviderMCLB?.update(imageFile!!, userMCLB!!)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
@@ -64,7 +64,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
                 ) {
                     Log.d(TAG, "Response $responseMCLB")
                     Log.d(TAG, "BODY ${responseMCLB.body()}")
-                    saveUserInSession(responseMCLB.body()?.data.toString())
+                    saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
                 }
 
                 override fun onFailure(call: Call<ResponseHttpMCLB>, t: Throwable) {
@@ -87,7 +87,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
     /*
   *   Navegar a la pantalla de Home si es la Autenticacion es Correcta
    */
-    private fun goToClientHome() {
+    private fun goToClientHomeMCLB() {
         val i = Intent(this, ClientHomeActivityMCLB::class.java)
         i.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Elimina el historial de Pantallas
@@ -97,7 +97,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
     /*
    *   Obtener la data almacena de Session de SharedPref
     */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val gson = Gson()
         if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
@@ -125,7 +125,7 @@ class SaveImageActivityMCLB : AppCompatActivity() {
             }
         }
 
-    private fun selectImage() {
+    private fun selectImageMCLB() {
         //ImagePicker Permite seleccionar de galeria o tomar foto
         ImagePicker.with(this)
             .crop()
@@ -139,14 +139,14 @@ class SaveImageActivityMCLB : AppCompatActivity() {
     /*
    *   Almacenar el Session
     */
-    private fun saveUserInSession(data: String) {
+    private fun saveUserInSessionMCLB(data: String) {
         Log.d("SharedPred", "Save : $data")
 
         val gson = Gson()
         val user = gson.fromJson(data, UserMCLB::class.java)
         Log.d("SharedPred", "Trasformacion : $user")
         sharedPrefMCLB?.save("user", user)
-        goToClientHome()
+        goToClientHomeMCLB()
 
     }
 }

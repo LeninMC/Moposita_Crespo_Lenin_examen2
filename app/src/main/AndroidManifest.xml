@@ -27,7 +27,7 @@
             android:name=".activities.Client.products.detail.ClientProductsDetailActivityMCLB"
             android:exported="false" />
         <activity
-            android:name=".activities.Client.products.list.ClientProductsListActivity"
+            android:name=".activities.Client.products.list.ClientProductsListActivityMCLB"
             android:exported="false" /> <!-- android:parentActivityName=".activities.Client.home.ClientHomeActivity"  hace que se agregue una fecha para regresar -->
         <activity
             android:name=".activities.Client.update.ClientUpdateActivityMCLB"

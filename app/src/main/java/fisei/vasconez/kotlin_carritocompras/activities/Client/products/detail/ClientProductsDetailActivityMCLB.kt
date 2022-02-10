@@ -78,11 +78,11 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
         textViewPrecio?.text = "${productMCLB?.precioUnitario}"
 
 
-        imageViewAdd?.setOnClickListener{addItem()}
-        imageViewRemove?.setOnClickListener{removeItem()}
-        buttonAdd?.setOnClickListener{addToBag()}
+        imageViewAdd?.setOnClickListener{addItemMCLB()}
+        imageViewRemove?.setOnClickListener{removeItemMCLB()}
+        buttonAdd?.setOnClickListener{addToBagMCLB()}
 
-        getProductsFromSharedPref()
+        getProductsFromSharedPrefMCLB()
 
 
     }
@@ -90,8 +90,8 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     /*
     *    Funcion para agregar al carrito de compras
      */
-    private  fun addToBag(){
-        val index = getIndexOf(productMCLB?.id!!) //indice del pregunto si existe en el sharedPref
+    private  fun addToBagMCLB(){
+        val index = getIndexOfMCLB(productMCLB?.id!!) //indice del pregunto si existe en el sharedPref
         if(index == -1 ){
             if(productMCLB?.quantity == 0 ){
                 productMCLB?.quantity = 1
@@ -109,12 +109,12 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     /*
     *   TODO Obtener el sharedPref  los datos
      */
-    private  fun getProductsFromSharedPref(){
+    private  fun getProductsFromSharedPrefMCLB(){
         Log.d("VerDATA", "${sharedPrefMCLB?.getData("order")}")
         if(!sharedPrefMCLB?.getData("order").isNullOrBlank()){ //Si existe
             val type  = object: TypeToken<ArrayList<ProductMCLB>>() {}.type //transfoma la lista JSON en una Array de Products
             selectedProducts  = gson.fromJson(sharedPrefMCLB?.getData("order"), type)
-            val index = getIndexOf(productMCLB?.id!!)
+            val index = getIndexOfMCLB(productMCLB?.id!!)
             if(index != -1 ){
                 //Establecemos valores en TextView
                 productMCLB?.quantity = selectedProducts[index].quantity
@@ -136,7 +136,7 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     /*
     *   Obtener el indice del producto seleccionado en la bolsa
      */
-    private  fun getIndexOf(idProduct : String): Int{
+    private  fun getIndexOfMCLB(idProduct : String): Int{
         var pos = 0
 
         for ( p in selectedProducts){
@@ -153,7 +153,7 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     *   Aumentar cantidad al producto
      */
 
-    private fun addItem (){
+    private fun addItemMCLB (){
         Log.d(TAG, " La Cantidad  ${counter}")
          counter ++
         productPrice = productMCLB?.precioUnitario!! * counter
@@ -167,7 +167,7 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     *   Disminuir cantidad al producto
      */
 
-    private fun removeItem (){
+    private fun removeItemMCLB (){
         if(counter > 1){
             counter --
             productPrice = productMCLB?.precioUnitario!! * counter

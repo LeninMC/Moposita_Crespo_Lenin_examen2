@@ -46,9 +46,7 @@ class ClientShoppingBagActivityMCLB : AppCompatActivity() {
 
 
         recyclerViewShoppingBag?.layoutManager = LinearLayoutManager(this)
-
-
-        getProductsFromSharedPref()
+        getProductsFromSharedPrefMCLB()
     }
 
     /*
@@ -63,7 +61,7 @@ class ClientShoppingBagActivityMCLB : AppCompatActivity() {
     /*
     *   TODO Obtener el sharedPref  los datos
      */
-    private  fun getProductsFromSharedPref(){
+    private  fun getProductsFromSharedPrefMCLB(){
         if(!sharedPrefMCLB?.getData("order").isNullOrBlank()){ //Si existe
             Log.d("Comprobacion", "${sharedPrefMCLB?.getData("order")}")
             val type  = object: TypeToken<ArrayList<ProductMCLB>>() {}.type //transfoma la lista JSON en una Array de Products

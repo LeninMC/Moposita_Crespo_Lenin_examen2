@@ -48,24 +48,24 @@ class MainActivityMCLB : AppCompatActivity() {
         /*
         *   iNVOCAR EL METODO PARA PASAR  A LA ACTIVITY REGISTRO
          */
-        imageViewGToRegister?.setOnClickListener { goToRegister() }
+        imageViewGToRegister?.setOnClickListener { goToRegisterMCLB() }
         /*
         *   BUTTON LOGIN LLAMAR AL METODO LOGIN
          */
-        buttonLogin?.setOnClickListener { login() }
+        buttonLogin?.setOnClickListener { loginMCLB() }
 
-        getUserFromSession()
+        getUserFromSessionMCLB()
 
     }
 
     /*
     *   FUNCION PARA REALIZAR EL LOGIN
      */
-    private fun login() {
+    private fun loginMCLB() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-        if (isValidarForm(email, password)) {
+        if (isValidarFormMCLB(email, password)) {
             usersProvider.login(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
                 override fun onResponse(
                     call: Call<ResponseHttpMCLB>,
@@ -79,13 +79,13 @@ class MainActivityMCLB : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         //Amacena el Usuario
-                        saveUserInSession(responseMCLB.body()?.data.toString())
+                        saveUserInSessionMCLB(responseMCLB.body()?.data.toString())
                         Log.d(
                             "MainActivity",
                             "Response SessionSave : ${responseMCLB.body()?.data.toString()}"
                         )
                         //Navega a la Activity de Home
-                        goToClientHome()
+                        goToClientHomeMCLB()
                     } else {
                         Toast.makeText(
                             this@MainActivityMCLB,
@@ -115,9 +115,9 @@ class MainActivityMCLB : AppCompatActivity() {
 
     /*
     *   FUNCION PARA VALIDAR SI ES CORREO
-    *   String.isEmailValid hace que aplique para todos campos de tipo String
+    *   String.isEmailValidMCLB hace que aplique para todos campos de tipo String
      */
-    fun String.isEmailValid(): Boolean {
+    fun String.isEmailValidMCLB(): Boolean {
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this)
             .matches()
     }
@@ -125,7 +125,7 @@ class MainActivityMCLB : AppCompatActivity() {
     /*
     *   Almacenar el Session
      */
-    private fun saveUserInSession(data: String) {
+    private fun saveUserInSessionMCLB(data: String) {
         Log.d("SharedPred", "Save : $data")
         val sharedPref = SharedPrefMCLB(this)
         val gson = Gson()
@@ -138,7 +138,7 @@ class MainActivityMCLB : AppCompatActivity() {
     /*
     *   Navegar a la pantalla de Home si es la Autenticacion es Correcta
      */
-    private fun goToClientHome() {
+    private fun goToClientHomeMCLB() {
         val i = Intent(this, ClientHomeActivityMCLB::class.java)
         i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK // Elimina el historial de Pantallas
         startActivity(i)
@@ -147,10 +147,10 @@ class MainActivityMCLB : AppCompatActivity() {
     /*
     *   VALIDACION DEL FORMULARIO
      */
-    private fun isValidarForm(email: String, password: String): Boolean {
+    private fun isValidarFormMCLB(email: String, password: String): Boolean {
         if (email.isBlank()) return false
         if (password.isBlank()) return false
-        if (!email.isEmailValid()) return false
+        if (!email.isEmailValidMCLB()) return false
 
         return true
     }
@@ -158,21 +158,21 @@ class MainActivityMCLB : AppCompatActivity() {
     /*
    *   Obtener la data almacena de Session de SharedPref
     */
-    private fun getUserFromSession() {
+    private fun getUserFromSessionMCLB() {
         val sharedPref = SharedPrefMCLB(this)
         val gson = Gson()
 
         if (!sharedPref.getData("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
             val user = gson.fromJson(sharedPref.getData("user"), UserMCLB::class.java)
-            goToClientHome()
+            goToClientHomeMCLB()
         }
     }
 
     /*
      *  FUNCION NAVEGAR A LA ACTIVITY DE REGISTRO
      */
-    private fun goToRegister() {
+    private fun goToRegisterMCLB() {
         val i = Intent(this, RegisterActivityMCLB::class.java)
         startActivity(i)
     }
