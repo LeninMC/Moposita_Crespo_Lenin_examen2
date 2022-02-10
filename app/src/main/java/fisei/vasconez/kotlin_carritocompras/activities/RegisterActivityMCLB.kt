@@ -127,7 +127,45 @@ class RegisterActivityMCLB : AppCompatActivity() {
         }
     }
 
+    private fun validarCedula(cedula: String): Boolean {
+        if (cedula.length == 10) {
+            var digitoRegion = cedula.substring(0, 2);
+            if (digitoRegion.toInt() >= 1 && digitoRegion.toInt() <= 24) {
+                var ultimoDigito = cedula.substring(9, 10);
+                var digitosPares = cedula.substring(1, 2).toInt() + cedula.substring(3, 4)
+                    .toInt() + cedula.substring(5, 6).toInt() + cedula.substring(7, 8).toInt();
+                var num1 = 0
+                var num7 = 0
+                var num3 = 0
+                var num9 = 0
+                var num5 = 0
+                var numero1 = cedula.substring(0, 1)
+                numero1 = (numero1.toInt() * 2).toString()
+                if (numero1.toInt() > 9) {
+                    num1= (numero1.toInt() - 9) }
 
+                var numero3 = cedula.substring(2, 3)
+                numero3 = (numero3.toInt() * 2).toString()
+                if (numero3.toInt() > 9) {
+                    num3 = (numero3.toInt() - 9) }
+
+                var numero5 = cedula.substring(4, 5)
+                numero5 = (numero5.toInt() * 2).toString()
+                if (numero5.toInt() > 9) {
+                    num5 = (numero5.toInt() - 9); }
+
+                var numero7 = cedula.substring(6, 7)
+                numero7 = (numero7.toInt() * 2).toString()
+                if (numero7.toInt() > 9) {
+                    num7 = (numero7.toInt() - 9) }
+
+                var numero9 = cedula.substring(8, 9)
+                numero9 = (numero9.toInt() * 2).toString()
+                if (numero9.toInt() > 9) {
+                    num9 = (numero9.toInt() - 9) }
+
+
+    }
 
     /*
    *   Almacenar el Session

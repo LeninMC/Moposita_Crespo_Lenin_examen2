@@ -143,7 +143,7 @@ class MainActivityMCLB : AppCompatActivity() {
             if (c >= 'A' && c < '[') mayuscula++
             if (c >= 'a' && c < '{') minuscula++
             seguidos = if (c == ultimo) seguidos + 1 else 0
-            if (seguidos >= 2) {
+            if (seguidos >= 7) {
                 validar = false // 3 seguidos
                 break
             }
