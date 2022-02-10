@@ -38,6 +38,7 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
         val product = productMCLBS[position] // CADA UNA DE LAS CATEGORIAS
 
         Log.d("Verlo" , "${product}")
+        holder.textViewIdProduct.text = product.id
         holder.textViewName.text = product.nombre
         holder.textViewCounter.text = "${product.quantity}"
         holder.textViewPrice.text ="${product.precioUnitario!! * product.quantity!!}"
@@ -143,8 +144,10 @@ class ShoppingBagAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<
         val imageViewRemove: ImageView
         val imageViewDelete: ImageView
         val textViewCounter: TextView
+        val textViewIdProduct: TextView
 
         init {
+            textViewIdProduct = view.findViewById(R.id.textview_idProduct)
             textViewName  = view.findViewById(R.id.textview_nombrebag)
             textViewPrice  = view.findViewById(R.id.textview_pricebag)
             imageViewProduct = view.findViewById(R.id.imageview_productbag)
