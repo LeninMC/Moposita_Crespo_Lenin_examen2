@@ -64,8 +64,8 @@ class MainActivityMCLB : AppCompatActivity() {
     private fun loginMCLB() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
-        regex ="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"
-       if(password.length > 5){
+
+       if(validarPassword(password)){
            if (isValidarFormMCLB(email, password)) {
                usersProvider.loginMCLB(email, password)?.enqueue(object : Callback<ResponseHttpMCLB> {
                    override fun onResponse(
@@ -117,6 +117,39 @@ class MainActivityMCLB : AppCompatActivity() {
     }
 
 
+    //funcion para la validacion de la contraseña
+    open fun validarPassword(password: String): Boolean {
+        var validar = true
+        var seguidos = 0
+        var ultimo = 0xFF.toChar()
+        var minuscula = 0
+        var mayuscula = 0
+        var numero = 0
+        var especial = 0
+        val espacio = false
+        if (password.length < 6 || password.length > 10) return false // tamaño
+        for (i in 0 until password.length) {
+            val c = password[i]
+            if (c <= ' ' || c > '~') {
+                validar = false //Espacio o fuera de rango
+                break
+            }
+            if (c > ' ' && c < '0' || c >= ':' && c < 'A' || c >= '[' && c < 'a' || c >= '{' && c.toInt() < 127) {
+                especial++
+            }
+            if (c >= '0' && c < ':') numero++
+            if (c >= 'A' && c < '[') mayuscula++
+            if (c >= 'a' && c < '{') minuscula++
+            seguidos = if (c == ultimo) seguidos + 1 else 0
+            if (seguidos >= 2) {
+                validar = false // 3 seguidos
+                break
+            }
+            ultimo = c
+        }
+        validar = validar && especial > 0 && numero > 0 && minuscula > 0 && mayuscula > 0
+        return validar
+    }
     /*
     *   FUNCION PARA VALIDAR SI ES CORREO
     *   String.isEmailValidMCLB hace que aplique para todos campos de tipo String
