@@ -289,7 +289,7 @@ class RegisterActivityMCLB : AppCompatActivity() {
             return  false
         }
         if(!validarCedula(dni)){
-            Toast.makeText(this, "Cedula incorrecta", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Cedula Incorrecta", Toast.LENGTH_SHORT).show()
             return  false
         }
         if(email.isBlank()) {
@@ -305,7 +305,10 @@ class RegisterActivityMCLB : AppCompatActivity() {
             return false
         }
         if(!validarPassword(password)) {
-            Toast.makeText(this, "Password no valido ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,
+                "Ingrese una contraseña entre 6 - 10 caracteres " +
+                        "Debe contener minimo una letra mayuscula, una letra minuscula" +
+                        "un caracter especial y un numero" , Toast.LENGTH_LONG).show()
             return false
         }
         if(confirmPassword.isBlank()) {
