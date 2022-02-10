@@ -13,6 +13,6 @@ class CategoriesProviderMCLB (val token : String) {
         categoriesRoutesMCLB = api.getCategoriesRoutesMCLB(token)
     }
     fun getAllMCLB () : Call<ArrayList<CategoryMCLB>>?{
-        return categoriesRoutesMCLB?.getAllMCLB(token)
+        return categoriesRoutesMCLB?.getAll(token)
     }
 }

@@ -13,6 +13,6 @@ class ProductsProviderMCLB (val token : String) {
         productsRoutesMCLB = api.getProductsRoutesMCLB(token)
     }
     fun findByCategoryMCLB (idcategoria : String ) : Call<ArrayList<ProductMCLB>>?{
-        return productsRoutesMCLB?.findByCategoryMCLB(idcategoria, token)
+        return productsRoutesMCLB?.findByCategory(idcategoria, token)
     }
 }

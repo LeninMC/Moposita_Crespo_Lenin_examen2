@@ -25,11 +25,11 @@ class UsersProviderMCLB(val token : String? = null) {
     }
 
     fun registerMCLB (userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLB?.registerMCLB(userMCLB)
+        return usersRoutesMCLB?.register(userMCLB)
     }
 
     fun loginMCLB (email : String, password : String ): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLB?.loginMCLB(email, password)
+        return usersRoutesMCLB?.login(email, password)
     }
 
     fun updateMCLB (file : File, userMCLB : UserMCLB): Call<ResponseHttpMCLB>?{
@@ -37,10 +37,10 @@ class UsersProviderMCLB(val token : String? = null) {
         val image = MultipartBody.Part.createFormData("image", file.name, reqFile)
         val requestBody = RequestBody.create(MediaType.parse("text/plain"), userMCLB.toJsonMCLB())
 
-        return  usersRoutesMCLBToken?.updateMCLB(image, requestBody, token!!)
+        return  usersRoutesMCLBToken?.update(image, requestBody, token!!)
     }
 
     fun updateWithoutImageMCLB (userMCLB : UserMCLB ): Call<ResponseHttpMCLB>?{
-        return usersRoutesMCLBToken?.updateWithoutImageMCLB(userMCLB, token!!)
+        return usersRoutesMCLBToken?.updateWithoutImage(userMCLB, token!!)
     }
 }
