@@ -164,7 +164,41 @@ class RegisterActivityMCLB : AppCompatActivity() {
                 if (numero9.toInt() > 9) {
                     num9 = (numero9.toInt() - 9) }
 
+                var digitosImpares = num1 + num3 + num5 + num7 + num9
+                var sumTot = (digitosPares + digitosImpares)
+                var sumaPrimerDigito = (sumTot).toString().substring(0, 1)
+                var decena = (sumaPrimerDigito.toInt() + 1) * 10
 
+                var validarDigito = decena - sumTot
+
+                if (validarDigito == 10) {
+                    validarDigito = 0
+                }
+
+                if (validarDigito == ultimoDigito.toInt()) {
+
+                    Toast.makeText(this, "Cedula Correcta ", Toast.LENGTH_SHORT)
+                        .show()
+                    return true
+                } else {
+
+                    Toast.makeText(this, "Cedula InCorrecta ", Toast.LENGTH_SHORT).show()
+                    return false
+                }
+            } else {
+                Toast.makeText(this, "Cedula no pertenerce a ninguna region", Toast.LENGTH_SHORT)
+                    .show()
+                return false
+            }
+
+
+            //TODO
+
+        } else {
+            Toast.makeText(this, "La cedula debe tener 10 digitos", Toast.LENGTH_SHORT)
+                .show()
+            return false
+        }
     }
 
     /*
