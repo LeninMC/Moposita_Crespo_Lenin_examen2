@@ -110,10 +110,10 @@ class ClientProductsDetailActivityMCLB : AppCompatActivity() {
     *   TODO Obtener el sharedPref  los datos
      */
     private  fun getProductsFromSharedPrefMCLB(){
-        Log.d("VerDATA", "${sharedPrefMCLB?.getData("order")}")
-        if(!sharedPrefMCLB?.getData("order").isNullOrBlank()){ //Si existe
+        Log.d("VerDATA", "${sharedPrefMCLB?.getDataMCLB("order")}")
+        if(!sharedPrefMCLB?.getDataMCLB("order").isNullOrBlank()){ //Si existe
             val type  = object: TypeToken<ArrayList<ProductMCLB>>() {}.type //transfoma la lista JSON en una Array de Products
-            selectedProducts  = gson.fromJson(sharedPrefMCLB?.getData("order"), type)
+            selectedProducts  = gson.fromJson(sharedPrefMCLB?.getDataMCLB("order"), type)
             val index = getIndexOfMCLB(productMCLB?.id!!)
             if(index != -1 ){
                 //Establecemos valores en TextView

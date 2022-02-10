@@ -70,7 +70,7 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
     *   Para cerrar la session de usuario almacenada en ShardPref
      */
     private fun logoutMCLB() {
-        sharedPrefMCLB?.remove("user")
+        sharedPrefMCLB?.removeMCLB("user")
         val i = Intent(this, MainActivityMCLB::class.java)
         startActivity(i)
     }
@@ -80,9 +80,9 @@ class ClientHomeActivityMCLB : AppCompatActivity() {
      */
     private fun getUserFromSessionMCLB() {
         val gson = Gson()
-        if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
+        if (!sharedPrefMCLB?.getDataMCLB("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
-            val user = gson.fromJson(sharedPrefMCLB?.getData("user"), UserMCLB::class.java)
+            val user = gson.fromJson(sharedPrefMCLB?.getDataMCLB("user"), UserMCLB::class.java)
             Log.d(TAG, "Usuario : $user")
         }
     }

@@ -162,9 +162,9 @@ class MainActivityMCLB : AppCompatActivity() {
         val sharedPref = SharedPrefMCLB(this)
         val gson = Gson()
 
-        if (!sharedPref.getData("user").isNullOrBlank()) {
+        if (!sharedPref.getDataMCLB("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
-            val user = gson.fromJson(sharedPref.getData("user"), UserMCLB::class.java)
+            val user = gson.fromJson(sharedPref.getDataMCLB("user"), UserMCLB::class.java)
             goToClientHomeMCLB()
         }
     }

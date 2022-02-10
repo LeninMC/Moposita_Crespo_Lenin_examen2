@@ -41,7 +41,7 @@ class SharedPrefMCLB(activity: Activity) {
     *   Obtener la data almacenada
      */
 
-    fun getData(key: String): String? {
+    fun getDataMCLB(key: String): String? {
         val data = prefs?.getString(key, "")
         return data
     }
@@ -49,7 +49,7 @@ class SharedPrefMCLB(activity: Activity) {
     *   Para remover la session de Usuario del Telefono
      */
 
-    fun remove(key : String ){
+    fun removeMCLB(key : String ){
         prefs?.edit()?.remove(key)?.apply()
     }
 }

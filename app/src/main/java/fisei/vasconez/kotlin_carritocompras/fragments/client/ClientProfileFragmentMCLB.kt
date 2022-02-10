@@ -76,9 +76,9 @@ class ClientProfileFragmentMCLB : Fragment() {
     */
     private fun getUserFromSessionMCLB() {
         val gson = Gson()
-        if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
+        if (!sharedPrefMCLB?.getDataMCLB("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
-            userMCLB = gson.fromJson(sharedPrefMCLB?.getData("user"), UserMCLB::class.java)
+            userMCLB = gson.fromJson(sharedPrefMCLB?.getDataMCLB("user"), UserMCLB::class.java)
 
         }
     }
@@ -96,7 +96,7 @@ class ClientProfileFragmentMCLB : Fragment() {
    *   Para cerrar la session de usuario almacenada en ShardPref
     */
     private fun logoutMCLB() {
-        sharedPrefMCLB?.remove("user")
+        sharedPrefMCLB?.removeMCLB("user")
         val i = Intent(requireContext(), MainActivityMCLB::class.java)
         startActivity(i)
     }

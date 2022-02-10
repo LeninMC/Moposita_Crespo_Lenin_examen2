@@ -62,10 +62,10 @@ class ClientShoppingBagActivityMCLB : AppCompatActivity() {
     *   TODO Obtener el sharedPref  los datos
      */
     private  fun getProductsFromSharedPrefMCLB(){
-        if(!sharedPrefMCLB?.getData("order").isNullOrBlank()){ //Si existe
-            Log.d("Comprobacion", "${sharedPrefMCLB?.getData("order")}")
+        if(!sharedPrefMCLB?.getDataMCLB("order").isNullOrBlank()){ //Si existe
+            Log.d("Comprobacion", "${sharedPrefMCLB?.getDataMCLB("order")}")
             val type  = object: TypeToken<ArrayList<ProductMCLB>>() {}.type //transfoma la lista JSON en una Array de Products
-            selectedProducts  = gson.fromJson(sharedPrefMCLB?.getData("order"), type)
+            selectedProducts  = gson.fromJson(sharedPrefMCLB?.getDataMCLB("order"), type)
 
             adapterMCLB = ShoppingBagAdapterMCLB(this, selectedProducts)
             recyclerViewShoppingBag?.adapter = adapterMCLB

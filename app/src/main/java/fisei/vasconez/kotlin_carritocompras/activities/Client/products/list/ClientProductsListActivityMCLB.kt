@@ -79,9 +79,9 @@ class ClientProductsListActivityMCLB : AppCompatActivity() {
 */
     private fun getUserFromSessionMCLB() {
         val gson = Gson()
-        if (!sharedPrefMCLB?.getData("user").isNullOrBlank()) {
+        if (!sharedPrefMCLB?.getDataMCLB("user").isNullOrBlank()) {
             //Si el usuario Existe en Session
-            userMCLB = gson.fromJson(sharedPrefMCLB?.getData("user"), UserMCLB::class.java)
+            userMCLB = gson.fromJson(sharedPrefMCLB?.getDataMCLB("user"), UserMCLB::class.java)
 
         }
     }
