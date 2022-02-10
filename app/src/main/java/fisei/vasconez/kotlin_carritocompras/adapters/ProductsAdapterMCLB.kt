@@ -33,7 +33,7 @@ class ProductsAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<Pro
         val product = productMCLBS[position] // CADA UNA DE LAS CATEGORIAS
 
         holder.textViewName.text = product.nombre
-        holder.textViewStock.text = product.id
+        holder.textViewStock.text = product.stock.toString()
         holder.textViewPrice.text ="${product.precioUnitario}"
         Glide.with(context).load(product.image1).into(holder.imageViewProduct) //Establece la imagen
 
@@ -59,10 +59,11 @@ class ProductsAdapterMCLB(val context: Activity, val productMCLBS: ArrayList<Pro
         val textViewName: TextView
         val textViewPrice: TextView
         val textViewStock: TextView
-
+        val textViewMostrarStock: TextView
         val imageViewProduct: ImageView
 
         init {
+            textViewMostrarStock = view.findViewById(R.id.textview_Mostrarstock)
             textViewStock = view.findViewById(R.id.textview_stock)
             textViewName  = view.findViewById(R.id.textview_productnombre)
             textViewPrice  = view.findViewById(R.id.textview_productprecio)
